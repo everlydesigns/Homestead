@@ -1,0 +1,77 @@
+/*==========================================================================*/
+/* Platform perks
+/*==========================================================================*/
+.platform-perks {
+	> .row {
+		padding: 4rem 2rem;
+		display: grid;
+		grid-row-gap: 3rem;
+		grid-template-columns: repeat(1, minmax(min-content, 28rem));
+		grid-column-gap: 4rem;
+		justify-content: center;
+	}
+
+	&__perk {
+		display: grid;
+		grid-template-columns: 3rem 1fr;
+		grid-template-rows: max-content max-content;
+		grid-column-gap: 2rem;
+		grid-row-gap: 1rem;
+		// min-width: 2.4rem;
+		// margin-bottom: 3.6rem;
+
+		svg {
+			width: 3rem;
+			height: 3rem;
+			fill: $primary_color;
+			align-self: start;
+		}
+
+		h3 {
+			font-size: 1.8rem;
+			font-weight: 400;
+			color: $text_color_2;
+			margin: 0;
+			align-self: center;
+			position: relative;
+			top: .2rem;
+		}
+
+		p {
+			font-family: $secondary_font_fam;
+			margin: 0;
+			grid-column: 2 / -1;
+			font-size: 1.4rem;
+			font-weight: 400;
+			line-height: 1.8rem;
+		}
+	}
+
+	@include breakpoint(st) {
+		> .row {
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 2rem;
+			grid-row-gap: 3.6rem;
+			padding: 4rem 3rem;
+		}
+
+		&__perk {
+			h3 {
+				font-size: 2rem;
+			}
+
+			p {
+				font-size: 1.6rem;
+				line-height: 2.4rem;
+			}
+		}
+	}
+
+	@include breakpoint(t) {
+		> .row {
+			padding: 5.4rem;
+			// untill the item is at least 260px wide!
+			grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+		}
+	}
+}

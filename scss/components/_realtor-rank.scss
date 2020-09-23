@@ -1,0 +1,124 @@
+/*==========================================================================*/
+/* Realtor Ranking
+/*==========================================================================*/
+.realtors-ranking {
+	background: $background_color;
+	color: #fff;
+	display: grid;
+	grid-row-gap: 2rem;
+
+	h2 {
+		font-size: 1.4rem;
+		text-transform: uppercase;
+		font-weight: 400;
+		margin: 0;
+		color: $primary_color;
+		text-align: center;
+		padding-top: 4.2rem;
+	}
+
+	&__list {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		display: grid;
+		grid-row-gap: 1.8rem;
+		justify-content: center;
+		margin-bottom: 4.8rem;
+	}
+
+	&__realtor {
+		display: grid;
+		grid-template-columns: 6rem max-content;
+		grid-column-gap: 1.5rem;
+
+		&-details {
+			display: grid;
+			grid-template-rows: repeat(2, max-content);
+			align-content: center;
+			grid-row-gap: .6rem;
+		}
+
+		&-name {
+			margin: 0;
+			font-size: 1.6rem;
+			font-weight: 600;
+		}
+
+		&-stats {
+			margin: 0;
+			font-size: .9rem;
+			text-transform: uppercase;
+			opacity: 0.6;
+		}
+
+		img {
+			width: 100%;
+			border-radius: 6rem;
+		}
+	}
+
+	@include breakpoint(st) {
+		h2 {
+			padding-top: 3.6rem;
+		}
+
+		&__list {
+			width: 100%;
+			padding: 0 2rem;
+			grid-template-columns: repeat(3, max-content);
+			grid-row-gap: 0;
+			grid-column-gap: 2rem;
+			justify-items: center;
+			margin-bottom: 4rem;
+		}
+
+		&__realtor {
+			grid-template-columns: 4rem 1fr;
+		}
+	}
+	@include breakpoint(t) {
+		&__list {
+			grid-column-gap: 3rem;
+		}
+		&__realtor {
+			grid-template-columns: 6rem max-content;
+
+			&-name {
+				font-size: 1.8rem;
+			}
+
+			&-stats {
+				font-size: 1rem;
+			}
+		}
+	}
+	@include breakpoint(mt) {
+		align-content: center;
+		grid-template-columns: 22rem;
+		justify-content: center;
+
+		h2 {
+			padding-top: 0;
+		}
+
+		&__list {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(3, max-content);
+			padding: 0;
+			justify-items: start;
+			grid-row-gap: 2rem;
+		}
+
+		&__realtor {
+			grid-template-columns: 4.8rem max-content;
+		}
+	}
+
+	@include breakpoint(lt) {
+		&__realtor {
+			grid-template-columns: 6rem max-content;
+		}
+	}
+}

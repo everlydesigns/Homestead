@@ -1,0 +1,84 @@
+/*==========================================================================*/
+/* House Cards
+/*==========================================================================*/
+.house-card {
+	display: grid;
+	justify-items: center;
+	margin-bottom: 3rem;
+	background: $background_color_light;
+
+	&__thumb {
+		img {
+			width: 100%;
+			display: block;
+		}
+	}
+
+	&__label {
+		background: $background_color;
+		color: #fff;
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+		display: inline-block;
+		padding: .8rem 2.5rem;
+		margin-top: calc(-3.4rem / 2);
+		margin-bottom: 2rem;
+	}
+
+	&__stats {
+		list-style-type: none;
+		margin: 0;
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(2, max-content);
+		grid-row-gap: 3rem;
+		font-size: 1.4rem;
+		font-weight: 400;
+		font-family: $secondary_font_fam;
+		margin-bottom: 2rem;
+		padding: 0 2rem;
+
+	}
+
+	&__stat {
+		display: grid;
+		grid-template-columns: 1.8rem 1fr;
+		grid-template-rows: 1.8rem;
+		align-items: center;
+		grid-column-gap: 1rem;
+	}
+
+	&__stat-icon {
+		width: 100%;
+		height: 100%;
+
+		svg {
+			width: 100%;
+			height: 100%;
+			fill: $primary_color;
+		}
+	}
+
+	&__stat-text {
+		position: relative;
+		top: .1rem;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	&__btn {
+		width: 100%;
+	}
+
+	@include breakpoint(t) {
+		max-width: 32rem;
+
+		&__label {
+			font-size: 1.4rem;
+			padding: 1rem 2.6rem;
+		}
+	}
+}

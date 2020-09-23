@@ -1,0 +1,38 @@
+/*==========================================================================*/
+/* Media queries mixin
+/*==========================================================================*/
+$breakpoints: (
+	lm: 25em, // large mobile, landscape 400+
+	st: 37.5em, // small tablet 600+
+	t: 45em, // tablet 720+
+	mt: 50em, // medium tablet 800+
+	lt: 60em, // larger tablet, small desktop 960+
+	dp: 75em // desktop 1200+
+);
+
+@mixin breakpoint($breakpoint) {
+	$raw-query: map-get($breakpoints, $breakpoint);
+
+	@if $raw-query {
+		$query: if(
+			type-of($raw-query) == 'string',
+			unquote($raw-query),
+			inspect($raw-query)
+		);
+
+		@media (min-width: #{$query}) {
+			@content;
+		}
+	} @else {
+		@error 'No value found for: #{$breakpoint} breakpoint';
+	}
+}
+
+/**
+ * Example:
+ *
+body {
+	@include breakpoint(st) {
+		color: red;
+	}
+}*/

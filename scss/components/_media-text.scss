@@ -1,0 +1,172 @@
+/*==========================================================================*/
+/* Media + Text
+/*==========================================================================*/
+.media-text {
+	background: $background_color_light;
+
+	> .row {
+		display: grid;
+	}
+
+	&__media {
+		background: linear-gradient(rgba($primary_color, 0.7), rgba($primary_color, 0.7)), url(../../img/house-3.jpeg);
+		background-size: cover;
+		display: grid;
+		padding: 2rem 2rem;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(6, 1fr);
+		align-items: center;
+		order: 1;
+
+		img {
+			width: 100%;
+			border-radius: .4rem;
+			box-shadow: 0 .8rem 1.4rem rgba(0,0,0,0.4);
+
+			&:first-child {
+				grid-column: 1 / 5;
+				grid-row: 1 / -1;
+			}
+
+			&:last-child {
+				grid-column: 4 / -1;
+				grid-row: 2 / 6;
+			}
+		}
+	}
+
+	&__text {
+		padding: 2.4rem 2rem;
+		display: grid;
+		align-content: center;
+	}
+
+	&__tagline {
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		letter-spacing: .2em;
+		color: $primary_color;
+		margin: 0 0 1.2rem;
+	}
+
+	&__title {
+		font-size: 3rem;
+		line-height: 3rem;
+		font-weight: 400;
+		margin: 0 0 .8rem;
+	}
+
+	&__body {
+		font-family: $secondary_font_fam;
+		font-size: 1.4rem;
+		line-height: 1.8rem;
+		margin: 0 0 1.2rem;
+	}
+
+	@include breakpoint(lm) {
+		> .row {
+			justify-items: center;
+		}
+
+		&__media {
+			padding: 3rem 4rem;
+		}
+
+		&__text {
+			padding: 4rem 3rem;
+			max-width: 54rem;
+		}
+	}
+	@include breakpoint(st) {
+		&__media {
+			padding: 6rem;
+		}
+
+		&__text {
+			padding: 6rem;
+			max-width: 100%;
+			justify-items: start;
+		}
+		&__tagline {
+			font-size: 1.4rem;
+		}
+
+		&__title {
+			font-size: 4.2rem;
+			line-height: 4.8rem;
+		}
+
+		&__body {
+			font-size: 1.6rem;
+			line-height: 2.4rem;
+		}
+	}
+	@include breakpoint(t) {
+		> .row {
+			grid-template-columns: 6fr 8fr;
+			grid-template-rows: min-content;
+		}
+
+		&__media {
+			order: 0;
+			padding: 3rem;
+			grid-template-rows: repeat(6, 5rem);
+			align-content: center;
+
+			img {
+				&:first-child {
+					grid-row: 2 / span 3;
+					grid-column: 1 / -2;
+				}
+				&:last-child {
+					grid-column: 2 / -1;
+					grid-row: 4 / 6;
+				}
+			}
+		}
+
+		&__tagline {
+			margin-bottom: 1.8rem;
+		}
+
+		&__body {
+			margin-bottom: 2.4rem;
+		}
+
+		.btn {
+			width: auto;
+			display: inline;
+		}
+	}
+	@include breakpoint(lt) {
+		> .row {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: max-content;
+		}
+
+		&__media {
+			padding: 6rem;
+
+			img {
+				&:first-child {
+					// transform: translateX(6rem);
+					grid-column: 1/-2;
+					grid-row: 2/-2;
+				}
+				&:last-child {
+					transform: translateX(8rem);
+					// grid-column: 1/-2;
+					// grid-row: 2/-2;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(dp) {
+		padding: 2rem 0;
+
+		&__media {
+			border-radius: .3rem;
+		}
+	}
+}

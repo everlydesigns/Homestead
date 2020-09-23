@@ -1,0 +1,91 @@
+/*==========================================================================*/
+/* Home specific styles
+/*==========================================================================*/
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+@import '../components/hero';
+@import '../components/navigation';
+@import '../components/realtor-rank';
+@import '../components/platform-perks';
+@import '../components/media-text';
+@import '../components/house-card';
+@import '../components/featured-gallery';
+@import '../components/footer';
+@import '../components/button';
+
+
+/*==========================================================================*/
+/* Body tag
+/*==========================================================================*/
+body {
+	@include breakpoint(lt) {
+		padding-left: 6.6rem;
+	}
+}
+
+
+/*==========================================================================*/
+/* Hero realtor wrap
+/*==========================================================================*/
+.hero-realtor-wrap {
+	@include breakpoint(mt) {
+		background: $background_color;
+
+		> .row {
+			width: 100%;
+			display: grid;
+			grid-template-columns: [hero-start] 65fr [hero-end realtor-start] 35fr [realtor-end];
+		}
+
+		.main-hero {
+			grid-column: hero-start / hero-end;
+		}
+
+		.realtors-ranking {
+			grid-column: realtor-start / realtor-end;
+		}
+	}
+	@include breakpoint(lt) {
+		> .row {
+			grid-template-columns: [hero-start] 7fr [hero-end realtor-start] 4fr [realtor-end];
+		}
+	}
+	@include breakpoint(dp) {
+		padding: 2rem 0;
+
+		> .row {
+			grid-template-columns: 1fr [hero-start] 76rem [hero-end realtor-start] 34rem [realtor-end] 1fr;
+		}
+
+		.main-hero {
+			border-radius: .3rem;
+		}
+	}
+}
+
+
+/*==========================================================================*/
+/* Featured houses
+/*==========================================================================*/
+.featured-houses {
+	> .row {
+		padding: 4rem 2em;
+		display: grid;
+		grid-template-columns: minmax(min-content, 34rem);
+		justify-content: center;
+	}
+
+
+	@include breakpoint(st) {
+		> .row {
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 2rem;
+		}
+	}
+	@include breakpoint(t) {
+		> .row {
+			grid-template-columns: repeat(auto-fit, minmax(26rem, max-content));
+		}
+	}
+}

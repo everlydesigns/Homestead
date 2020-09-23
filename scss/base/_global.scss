@@ -1,0 +1,24 @@
+@import './scss/abstracts/variables';
+@import './scss/abstracts/mixins';
+
+@import 'normalize';
+@import 'layout';
+@import 'fonts';
+@import 'typography';
+@import 'a11y';
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+body {
+	color: $text_color_1;
+}
+
+*, *:before, *:after {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	box-sizing: inherit;
+}
